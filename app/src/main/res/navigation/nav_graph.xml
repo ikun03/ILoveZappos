@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/transactionHistoryFragment">
+
+    <fragment
+        android:id="@+id/orderBookFragment"
+        android:name="com.ikun.cryptoinfo.OrderBookFragment"
+        android:label="Order Book"
+        tools:layout="@layout/fragment_order_book">
+        <action
+            android:id="@+id/to_transaction_history"
+            app:destination="@id/transactionHistoryFragment" />
+        <action
+            android:id="@+id/to_price_alert"
+            app:destination="@id/priceAlertFragment" />
+        <action
+            android:id="@+id/to_order_book"
+            app:destination="@id/orderBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionHistoryFragment"
+        android:name="com.ikun.cryptoinfo.TransactionHistoryFragment"
+        android:label="Transaction History"
+        tools:layout="@layout/fragment_transaction_history">
+        <action
+            android:id="@+id/to_order_book"
+            app:destination="@id/orderBookFragment" />
+        <action
+            android:id="@+id/to_price_alert"
+            app:destination="@id/priceAlertFragment" />
+        <action
+            android:id="@+id/to_transaction_history"
+            app:destination="@id/transactionHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/priceAlertFragment"
+        android:name="com.ikun.cryptoinfo.PriceAlertFragment"
+        android:label="Price Alert"
+        tools:layout="@layout/fragment_price_alert">
+        <action
+            android:id="@+id/to_transaction_history"
+            app:destination="@id/transactionHistoryFragment" />
+        <action
+            android:id="@+id/to_order_book"
+            app:destination="@id/orderBookFragment" />
+        <action
+            android:id="@+id/to_price_alert"
+            app:destination="@id/priceAlertFragment" />
+    </fragment>
+</navigation>

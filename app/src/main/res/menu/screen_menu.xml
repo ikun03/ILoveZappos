@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/goto_transaction_history"
+        android:title="Transaction History" />
+    <item
+        android:id="@+id/goto_order_book"
+        android:title="Order Book" />
+    <item
+        android:id="@+id/goto_price_alert"
+        android:title="Price Alert" />
+</menu>
