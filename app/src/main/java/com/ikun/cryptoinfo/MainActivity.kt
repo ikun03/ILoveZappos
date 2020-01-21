@@ -22,7 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class TransactionHistoryActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var chart: LineChart
@@ -30,12 +30,12 @@ class TransactionHistoryActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     companion object {
-        private val TAG = TransactionHistoryActivity::class.qualifiedName
+        private val TAG = MainActivity::class.qualifiedName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_transaction_history)
+        setContentView(R.layout.activity_main)
 
         //Old way of setting up a toolbar
         //setSupportActionBar(findViewById(R.id.my_toolbar))
@@ -56,18 +56,26 @@ class TransactionHistoryActivity : AppCompatActivity() {
 
         //Configure the Navigation View
         findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
+
         findViewById<NavigationView>(R.id.nav_view).setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.goto_order_book -> {
-                    navController.navigate(R.id.to_order_book)
+                    if (navController.currentDestination?.id != R.id.orderBookFragment) {
+                        navController.navigate(R.id.to_order_book)
+                    }
                     true
                 }
                 R.id.goto_price_alert -> {
-                    navController.navigate(R.id.to_price_alert)
+
+                    if (navController.currentDestination?.id != R.id.priceAlertFragment) {
+                        navController.navigate(R.id.to_price_alert)
+                    }
                     true
                 }
                 R.id.goto_transaction_history -> {
-                    navController.navigate(R.id.to_transaction_history)
+                    if (navController.currentDestination?.id != R.id.transactionHistoryFragment) {
+                        navController.navigate(R.id.to_transaction_history)
+                    }
                     true
                 }
                 else -> false
