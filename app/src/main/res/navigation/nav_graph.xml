@@ -24,11 +24,17 @@
     </fragment>
     <action
         android:id="@+id/to_transaction_history"
-        app:destination="@id/transactionHistoryFragment" />
+        app:destination="@id/transactionHistoryFragment"
+        app:popUpTo="@id/transactionHistoryFragment"
+        app:popUpToInclusive="true" />
     <action
         android:id="@+id/to_order_book"
-        app:destination="@id/orderBookFragment" />
+        app:destination="@id/orderBookFragment"
+        app:popUpTo="@id/orderBookFragment"
+        app:popUpToInclusive="true" />
     <action
         android:id="@+id/to_price_alert"
-        app:destination="@id/priceAlertFragment" />
+        app:destination="@id/priceAlertFragment"
+        app:popUpTo="@id/priceAlertFragment"
+        app:popUpToInclusive="true" />
 </navigation>
