@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/orderBookFragment"
-        android:name="com.ikun.cryptoinfo.OrderBookFragment"
+        android:name="com.ikun.cryptoinfo.fragments.OrderBookFragment"
         android:label="Order Book"
         tools:layout="@layout/fragment_order_book" />
     <fragment
         android:id="@+id/transactionHistoryFragment"
-        android:name="com.ikun.cryptoinfo.TransactionHistoryFragment"
+        android:name="com.ikun.cryptoinfo.fragments.TransactionHistoryFragment"
         android:label="Transaction History"
         tools:layout="@layout/fragment_transaction_history" />
     <fragment
         android:id="@+id/priceAlertFragment"
-        android:name="com.ikun.cryptoinfo.PriceAlertFragment"
+        android:name="com.ikun.cryptoinfo.fragments.PriceAlertFragment"
         android:label="Price Alert"
         tools:layout="@layout/fragment_price_alert">
 

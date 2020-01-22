@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo
+package com.ikun.cryptoinfo.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -12,7 +12,8 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.material.snackbar.Snackbar
-import com.ikun.cryptoinfo.MainActivity.Companion.service
+import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
+import com.ikun.cryptoinfo.R
 import com.ikun.cryptoinfo.data.TransactionHistoryData
 import retrofit2.Call
 import retrofit2.Callback
