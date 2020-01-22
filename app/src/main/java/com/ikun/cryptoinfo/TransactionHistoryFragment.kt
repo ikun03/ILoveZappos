@@ -7,6 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.google.android.material.snackbar.Snackbar
+import com.ikun.cryptoinfo.MainActivity.Companion.service
+import com.ikun.cryptoinfo.data.TransactionHistoryData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +36,14 @@ class TransactionHistoryFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+    private lateinit var chart: LineChart
+    override fun onStart() {
+        super.onStart()
+
+        view!!.findViewById<LineChart>(R.id.chrt_transaction_history)
+        chart = view!!.findViewById(R.id.chrt_transaction_history)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +51,44 @@ class TransactionHistoryFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        service.getTransactionData().enqueue(object : Callback<List<TransactionHistoryData>> {
+            override fun onFailure(call: Call<List<TransactionHistoryData>>, t: Throwable) {
+                Snackbar.make(
+                    view!!.findViewById(android.R.id.content),
+                    t.message.toString(),
+                    Snackbar.LENGTH_LONG
+                )
+            }
+
+            override fun onResponse(
+                call: Call<List<TransactionHistoryData>>,
+                response: Response<List<TransactionHistoryData>>
+            ) {
+
+                //Now handle the request by adding the data to the linegraph
+                val entries: ArrayList<Entry> = ArrayList()
+                response.body()
+                    ?.forEach {
+                        if (it.type == "0") entries.add(
+                            Entry(
+                                it.date.toFloat(),
+                                it.price.toFloat()
+                            )
+                        )
+                    }
+
+                val dataSetType0 = LineDataSet(entries, "Label")
+                chart.data = LineData(dataSetType0)
+                chart.invalidate()
+            }
+
+        })
     }
 
     override fun onCreateView(
@@ -40,6 +96,7 @@ class TransactionHistoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_transaction_history, container, false)
     }
 
