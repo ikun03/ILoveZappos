@@ -8,11 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.ikun.cryptoinfo.R
 import com.ikun.cryptoinfo.workers.PriceAlertWorker
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -59,10 +60,11 @@ class PriceAlertFragment : Fragment() {
                     "priceVal" to
                             view!!.findViewById<Button>(R.id.btn_set_alert).text.toString().toDouble()
                 )
-
-                val updateWorkRequest = OneTimeWorkRequestBuilder<PriceAlertWorker>()
-                    .setInputData(data)
-                    .build()
+                
+                val updateWorkRequest =
+                    PeriodicWorkRequestBuilder<PriceAlertWorker>(1, TimeUnit.HOURS)
+                        .setInputData(data)
+                        .build()
 
                 WorkManager.getInstance(this.context!!).enqueue(updateWorkRequest)
 
