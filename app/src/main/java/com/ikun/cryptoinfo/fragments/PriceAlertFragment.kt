@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.ikun.cryptoinfo.R
+import com.ikun.cryptoinfo.workers.PriceAlertWorker
 
 
 /**
@@ -44,6 +49,24 @@ class PriceAlertFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    override fun onStart() {
+        super.onStart()
+        view!!.findViewById<Button>(R.id.btn_set_alert)
+            .setOnClickListener {
+                val data = workDataOf(
+                    "priceVal" to
+                            view!!.findViewById<Button>(R.id.btn_set_alert).text.toString().toDouble()
+                )
+
+                val updateWorkRequest = OneTimeWorkRequestBuilder<PriceAlertWorker>()
+                    .setInputData(data)
+                    .build()
+
+                WorkManager.getInstance(this.context!!).enqueue(updateWorkRequest)
+
+            }
     }
 
     /**

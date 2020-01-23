@@ -10,19 +10,17 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.ikun.cryptoinfo.activities.MainActivity
+import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
 import com.ikun.cryptoinfo.data.PriceAlertData
-import com.ikun.cryptoinfo.interfaces.TransactionInterface
 import retrofit2.Call
 import retrofit2.Response
 
 class PriceAlertWorker(
     appContext: Context,
-    workerParameters: WorkerParameters,
-    private val transactionInterface: TransactionInterface,
-    val thresholdPrice: Float
+    workerParameters: WorkerParameters
 ) : Worker(appContext, workerParameters) {
     override fun doWork(): Result {
-        transactionInterface.checkForPriceAlert().enqueue(object :
+        service.checkForPriceAlert().enqueue(object :
             retrofit2.Callback<PriceAlertData> {
             override fun onFailure(call: Call<PriceAlertData>, t: Throwable) {
             }
@@ -31,7 +29,7 @@ class PriceAlertWorker(
                 call: Call<PriceAlertData>,
                 response: Response<PriceAlertData>
             ) {
-                if (response.body()?.last?.toFloat()!! > thresholdPrice) {
+                if (response.body()?.last?.toFloat()!! > inputData.getDouble("priceVal", 0.0)) {
 
 
                     val noti = NotificationCompat.Builder(applicationContext, "1")
