@@ -1,5 +1,8 @@
 package com.ikun.cryptoinfo.activities
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -77,6 +80,21 @@ class MainActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder().baseUrl("https://www.bitstamp.net/")
             .addConverterFactory(GsonConverterFactory.create()).build()
         service = retrofit.create(TransactionInterface::class.java)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create the NotificationChannel
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val CHANNEL_ID = "1"
+            val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
+            mChannel.description = descriptionText
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(mChannel)
+        }
+
 
     }
 
