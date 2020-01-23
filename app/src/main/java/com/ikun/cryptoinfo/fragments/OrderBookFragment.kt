@@ -28,7 +28,6 @@ import retrofit2.Response
  * create an instance of this fragment.
  */
 class OrderBookFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var bidRecyclerView: RecyclerView
@@ -89,11 +88,6 @@ class OrderBookFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_order_book, container, false)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
@@ -118,24 +112,6 @@ class OrderBookFragment : Fragment() {
      * for more information.
      */
     interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         fun onFragmentInteraction(uri: Uri)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment OrderBookFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OrderBookFragment().apply {
-
-            }
     }
 }
