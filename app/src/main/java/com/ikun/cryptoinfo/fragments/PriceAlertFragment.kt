@@ -86,6 +86,7 @@ class PriceAlertFragment : Fragment() {
             .setText(sharedPref?.getString(getString(R.string.price_alert_string), "0"))
         view!!.findViewById<Button>(R.id.btn_set_alert)
             .setOnClickListener {
+                context?.let { it1 -> WorkManager.getInstance(it1) }?.cancelAllWork()
                 view!!.findViewById<TextView>(R.id.tv_price_noti)
                     .setText(
                         "New price threshold set to : "

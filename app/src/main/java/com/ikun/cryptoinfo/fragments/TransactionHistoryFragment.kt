@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.ikun.cryptoinfo.R
 import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
 import com.ikun.cryptoinfo.data.TransactionHistoryData
+import com.ikun.cryptoinfo.interfaces.DateValueFormatter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,6 +64,7 @@ class TransactionHistoryFragment : Fragment() {
 
                 //Now handle the request by adding the data to the linegraph
                 val entries: ArrayList<Entry> = ArrayList()
+
                 response.body()
                     ?.forEach {
                         if (it.type == "0") entries.add(
@@ -75,6 +77,7 @@ class TransactionHistoryFragment : Fragment() {
 
                 val dataSetType0 = LineDataSet(entries, "Label")
                 chart.data = LineData(dataSetType0)
+                chart.xAxis.valueFormatter = (DateValueFormatter())
                 chart.invalidate()
             }
 
