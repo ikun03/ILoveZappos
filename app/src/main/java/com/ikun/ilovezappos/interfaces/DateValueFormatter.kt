@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.interfaces
+package com.ikun.ilovezappos.interfaces
 
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.formatter.ValueFormatter

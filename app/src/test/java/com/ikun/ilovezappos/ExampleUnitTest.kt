@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo
+package com.ikun.ilovezappos
 
 import org.junit.Test
 

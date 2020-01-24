@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Crypto Info</string>
+    <string name="app_name">ILoveZappos</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="channel_name">Price Alerts</string>
     <string name="channel_description">Alerts set by you</string>
     <string name="preference_file_key">crypto_info_spref</string>
     <string name="price_alert_string">price_alert</string>
+    <string name="price_text">Price</string>
+    <string name="amount_text">Amount</string>
+    <string name="price_noti_text">New price threshold set to :</string>
 </resources>

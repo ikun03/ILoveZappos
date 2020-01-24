@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.data
+package com.ikun.ilovezappos.data
 
 data class TransactionHistoryData(
     val date: String,

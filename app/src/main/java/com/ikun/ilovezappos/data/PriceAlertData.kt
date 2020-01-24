@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.data
+package com.ikun.ilovezappos.data
 
 data class PriceAlertData(
     val high: String,

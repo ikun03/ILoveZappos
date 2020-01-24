@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.activities
+package com.ikun.ilovezappos.activities
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,8 +11,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.ikun.cryptoinfo.R
-import com.ikun.cryptoinfo.interfaces.TransactionInterface
+import com.ikun.ilovezappos.R
+import com.ikun.ilovezappos.interfaces.TransactionInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

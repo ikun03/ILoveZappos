@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.fragments
+package com.ikun.ilovezappos.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,23 +15,15 @@ import androidx.fragment.app.Fragment
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.ikun.cryptoinfo.R
-import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
-import com.ikun.cryptoinfo.data.PriceAlertData
-import com.ikun.cryptoinfo.workers.PriceAlertWorker
+import com.ikun.ilovezappos.R
+import com.ikun.ilovezappos.activities.MainActivity.Companion.service
+import com.ikun.ilovezappos.data.PriceAlertData
+import com.ikun.ilovezappos.workers.PriceAlertWorker
 import retrofit2.Call
 import retrofit2.Response
 import java.util.concurrent.TimeUnit
 
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [PriceAlertFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [PriceAlertFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PriceAlertFragment : Fragment() {
 
     private var listener: OnFragmentInteractionListener? = null
@@ -89,7 +81,7 @@ class PriceAlertFragment : Fragment() {
                 context?.let { it1 -> WorkManager.getInstance(it1) }?.cancelAllWork()
                 view!!.findViewById<TextView>(R.id.tv_price_noti)
                     .setText(
-                        "New price threshold set to : "
+                        getString(R.string.price_noti_text)
                                 +
                                 view!!.findViewById<EditText>(R.id.et_price_threshold).text.toString()
                     )
@@ -119,17 +111,6 @@ class PriceAlertFragment : Fragment() {
             }
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
     }

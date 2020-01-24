@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.fragments
+package com.ikun.ilovezappos.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -12,23 +12,15 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.material.snackbar.Snackbar
-import com.ikun.cryptoinfo.R
-import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
-import com.ikun.cryptoinfo.data.TransactionHistoryData
-import com.ikun.cryptoinfo.interfaces.DateValueFormatter
+import com.ikun.ilovezappos.R
+import com.ikun.ilovezappos.activities.MainActivity.Companion.service
+import com.ikun.ilovezappos.data.TransactionHistoryData
+import com.ikun.ilovezappos.interfaces.DateValueFormatter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [TransactionHistoryFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [TransactionHistoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TransactionHistoryFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private lateinit var chart: LineChart
@@ -105,17 +97,6 @@ class TransactionHistoryFragment : Fragment() {
         listener = null
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
     }

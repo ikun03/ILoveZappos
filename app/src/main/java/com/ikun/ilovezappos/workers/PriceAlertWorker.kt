@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.workers
+package com.ikun.ilovezappos.workers
 
 import android.app.PendingIntent
 import android.app.TaskStackBuilder
@@ -9,9 +9,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.ikun.cryptoinfo.activities.MainActivity
-import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
-import com.ikun.cryptoinfo.data.PriceAlertData
+import com.ikun.ilovezappos.activities.MainActivity
+import com.ikun.ilovezappos.activities.MainActivity.Companion.service
+import com.ikun.ilovezappos.data.PriceAlertData
 import retrofit2.Call
 import retrofit2.Response
 

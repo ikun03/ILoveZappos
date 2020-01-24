@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.fragments
+package com.ikun.ilovezappos.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -10,23 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ikun.cryptoinfo.R
-import com.ikun.cryptoinfo.activities.MainActivity.Companion.service
-import com.ikun.cryptoinfo.adapters.OrderBookAdapter
-import com.ikun.cryptoinfo.data.OrderBookData
+import com.ikun.ilovezappos.R
+import com.ikun.ilovezappos.activities.MainActivity.Companion.service
+import com.ikun.ilovezappos.adapters.OrderBookAdapter
+import com.ikun.ilovezappos.data.OrderBookData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [OrderBookFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [OrderBookFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class OrderBookFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
@@ -100,17 +93,6 @@ class OrderBookFragment : Fragment() {
         listener = null
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
     }

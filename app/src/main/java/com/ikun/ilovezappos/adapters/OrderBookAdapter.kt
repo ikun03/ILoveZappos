@@ -1,4 +1,4 @@
-package com.ikun.cryptoinfo.adapters
+package com.ikun.ilovezappos.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ikun.cryptoinfo.R
+import com.ikun.ilovezappos.R
 
 class OrderBookAdapter(
     private val dataset: List<List<String>>,
@@ -38,8 +38,8 @@ class OrderBookAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         if (position == 0) {
-            holder.priceView.text = "Price"
-            holder.amountView.text = "Amount"
+            holder.priceView.text = context?.getString(R.string.price_text)
+            holder.amountView.text = context?.getString(R.string.amount_text)
 
             holder.priceView.textSize = 12F
             holder.amountView.textSize = 12F

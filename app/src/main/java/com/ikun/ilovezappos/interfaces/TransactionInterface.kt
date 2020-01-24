@@ -1,8 +1,8 @@
-package com.ikun.cryptoinfo.interfaces
+package com.ikun.ilovezappos.interfaces
 
-import com.ikun.cryptoinfo.data.OrderBookData
-import com.ikun.cryptoinfo.data.PriceAlertData
-import com.ikun.cryptoinfo.data.TransactionHistoryData
+import com.ikun.ilovezappos.data.OrderBookData
+import com.ikun.ilovezappos.data.PriceAlertData
+import com.ikun.ilovezappos.data.TransactionHistoryData
 import retrofit2.Call
 import retrofit2.http.GET
 
