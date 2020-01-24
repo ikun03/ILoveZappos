@@ -29,7 +29,7 @@ class PriceAlertWorker(
                 call: Call<PriceAlertData>,
                 response: Response<PriceAlertData>
             ) {
-                if (response.body()?.last?.toFloat()!! > inputData.getDouble("priceVal", 0.0)) {
+                if (response.body()?.last?.toFloat()!! < inputData.getDouble("priceVal", 0.0)) {
 
 
                     val noti = NotificationCompat.Builder(applicationContext, "1")
